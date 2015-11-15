@@ -59,7 +59,7 @@
 	{% else %}
 		<div class="jumbotron2">
 		{% if recommendations %}
-		<h3>Reccomended For You</h3>
+		<h3>Recommended For You</h3>
 		<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
 			{% for rec in recommendations %}<div class="gallery-cell">{{ rec.merchant.name }}</div>{% endfor %}
 		</div>
