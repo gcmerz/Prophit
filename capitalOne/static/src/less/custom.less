@@ -1,0 +1,346 @@
+
+body {
+  padding-top: 50px;
+  position: relative;
+}
+section {
+  padding: 20px 0px;
+}
+.modal form {
+  margin-bottom: 0px;
+}
+footer {
+    padding-bottom: 20px;
+}
+p.login-signup {
+    margin-top: 20px;
+}
+
+.feature-columns {
+    .make-row();
+
+    > div {
+        i.fa {
+            margin-bottom: 0.2em;
+        }
+        .make-sm-column(4);
+        .text-center;
+        margin: 2em 0;
+    }
+}
+
+.jumbotron {
+	background-color: transparent;
+  background-image: url(../images/jumbotron_image.jpg);
+	background-size: cover;
+}
+
+.jumbotron2 {
+  background-color: transparent;
+  background-size: cover;
+}
+
+
+body {
+  background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
+  color: #444;
+  font-family: Georgia;
+}
+
+strong {
+  font-weight: bold; 
+}
+
+em {
+  font-style: italic; 
+}
+
+table {
+  background: #f5f5f5;
+  border-collapse: separate;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 0 #fff;
+  font-size: 12px;
+  line-height: 24px;
+  margin: 30px auto;
+  text-align: center;
+  width: 80%;
+} 
+
+th {
+  background-color: #0099cc;
+  border-left: 1px solid #555;
+  border-right: 1px solid #777;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #333;
+  border-radius: 10px; 
+  box-shadow: inset 0 1px 0 #999;
+  color: #fff;
+  text-align: center; 
+  padding: 10px 15px;
+  position: relative;
+}
+
+th:after {
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+  content: '';
+  display: block;
+  border-radius: 10px; 
+  height: 25%;
+  left: 0;
+  margin: 1px 0 0 0;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+}
+
+th:first-child {
+  border-left: 1px solid #777;  
+  box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+  box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #e8e8e8;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #e8e8e8;
+  border-radius: 10px; 
+  padding: 10px 15px;
+  position: relative;
+  transition: all 300ms;
+}
+
+td:first-child {
+  box-shadow: inset 1px 0 0 #fff;
+} 
+
+td:last-child {
+  border-right: 1px solid #e8e8e8;
+  box-shadow: inset -1px 0 0 #fff;
+} 
+
+tr {
+  background: url(http://jackrugile.com/images/misc/noise-diagonal.png);  
+}
+
+tr:nth-child(odd) td {
+  background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);  
+}
+
+tr:last-of-type td {
+  box-shadow: inset 0 -1px 0 #fff; 
+}
+
+tr:last-of-type td:first-child {
+  box-shadow: inset 1px -1px 0 #fff;
+} 
+
+tr:last-of-type td:last-child {
+  box-shadow: inset -1px -1px 0 #fff;
+} 
+
+tbody:hover td {
+  color: transparent;
+  text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+}
+
+h3 {
+  padding-top: 1cm; 
+  text-align: center; 
+	font-weight: bold;
+  font-size: 200%; 
+}
+
+h4 { 
+  text-align: center; 
+  font-weight: bold; 
+  font-size: 150%; 
+}
+
+#copyright {
+	position: absolute;
+	bottom: 0;
+}
+
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus { outline: none; }
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+          tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  background: hsla(0, 0%, 100%, 0.75);
+  cursor: pointer;
+  /* vertically center */
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.flickity-prev-next-button:hover { background: white; }
+
+.flickity-prev-next-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #09F;
+}
+
+.flickity-prev-next-button:active {
+  filter: alpha(opacity=60); /* IE8 */
+  opacity: 0.6;
+}
+
+.flickity-prev-next-button.previous { left: 10px; }
+.flickity-prev-next-button.next { right: 10px; }
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button:disabled {
+  filter: alpha(opacity=30); /* IE8 */
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.flickity-prev-next-button svg {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #333;
+}
+
+/* color & size if no SVG - IE8 and Android 2.3 */
+.flickity-prev-next-button.no-svg {
+  color: #333;
+  font-size: 26px;
+}
+
+/* ---- page dots ---- */
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots { direction: rtl; }
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  filter: alpha(opacity=25); /* IE8 */
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  filter: alpha(opacity=100); /* IE8 */
+  opacity: 1;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: Georgia; }
+
+.gallery {
+  background: #EEE;
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 20px;
+  font-weight: lighter; 
+  color: white;
+}
+
+.gallery-cell {
+  width: 28%;
+  height: 200px;
+  margin-right: 10px;
+  background: #0099cc;
+  border-radius: 25px;
+  counter-increment: gallery-cell;
+}
+
+.gallery-cell.is-selected {
+  background: #8C8;
+}
+
+/* cell number */
+.gallery-cell:before {
+
+}

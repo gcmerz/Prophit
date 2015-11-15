@@ -1,0 +1,133 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+	{% if not user.is_authenticated %}
+		<section class="jumbotron">
+			<div class="container">
+				{% include "_messages.html" %}
+				<h1>{% blocktrans %}Welcome to<br>Prophit{% endblocktrans %}</h1>
+				<p>
+					{% blocktrans %}
+					Your guide to purchases. 
+					{% endblocktrans %}
+					{% if not ACCOUNT_OPEN_SIGNUP %}
+						{% url "account_login" as login_url %}<a href="{{ login_url }}" class="btn btn-default">Log In</a>
+					{% endif %}
+				</p>
+				
+				{% if ACCOUNT_OPEN_SIGNUP %}
+					{% url "account_login" as login_url %}
+					{% url "account_signup" as signup_url %}
+					<p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-default">Log In</a> or <a href="{{ signup_url }}" class="signup-btn btn btn-primary">Sign Up</a> to try out the site.{% endblocktrans %}</p> 
+				{% endif %}
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<h2 class="text-center">{% blocktrans %}What is Prophit?{% endblocktrans %}</h2>
+				<p class="lead">
+					{% blocktrans %}
+					<b>Prophit</b> is a powerful financial application that uses advanced algorithms to make recommendations on your next purchases. 
+					{% endblocktrans %}
+				</p>
+				<div class="feature-columns">
+					<div>
+						<i class="fa fa-cubes fa-3x"></i><br>
+						{% blocktrans %}
+						<b>Past consumption data</b> allows Prophit to figure out what you might like in the future.
+						{% endblocktrans %}
+					</div>
+					<div>
+						<i class="fa fa-puzzle-piece fa-3x"></i><br>
+						{% blocktrans %}
+						<b>Aggregation of consumer data</b> provides insights about your spending habits.
+						{% endblocktrans %}
+					</div>
+					<div>
+						<i class="fa fa-tint fa-3x"></i><br>
+						{% blocktrans %}
+						<b>Current economic conditions</b> are taken into account to optimize your decisions.
+						{% endblocktrans %}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% else %}
+		<div class="jumbotron2">
+		{% if recommendations %}
+		<h3>Reccomended For You</h3>
+		<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+			{% for rec in recommendations %}<div class="gallery-cell">{{ rec.merchant.name }}</div>{% endfor %}
+		</div>
+		{% else %}
+		<h3>No Reccomendations</h3>		
+		{% endif %}
+		<div class="text-center hidden" style="margin-top: 40px; margin-bottom: -40px;">
+			<button class="show-visuals btn btn-default-white">
+	        	<i class="fa fa-line-chart"></i> Show Visualizations
+	        </button>
+	        <div class="visualizations hidden" style="height:0px;">
+	        	What's up?
+	        </div>
+    	</div>
+		</div>
+		<div>
+		<h3>Account Activity</h3>
+		</div> 
+		<h4>Current Balance: ${{profile.balance}}</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Merchant Name</th>
+              <th>Purchase Amount</th>
+              <th>Available Balance</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for transaction in transactions %}
+            <tr>
+              <td><strong>{{ transaction.merchant.name }}</strong></td>
+              <td>${{ transaction.amount }}</td>
+              <td>{{ transaction.available_balance }}</td>
+              <td>{{ transaction.date }}</td>
+            </tr>
+        {% endfor %}
+          </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
+
+
+{% block scripts %}
+	{{ block.super }}
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="{% static "js/flickity.js" %}"></script>
+	<script>
+		$('.show-visuals').click(function () {
+			if ($('.show-visuals').text().indexOf("Show") > -1) {
+				$('.visualizations').removeClass("hidden").animate({'height': '+=400px'}, 'fast', function () {
+				});
+				var html = $('.show-visuals').html()
+				$('.show-visuals').html(html.replace("Show", "Hide"))
+			}
+			else {
+				$('.visualizations').animate({'height': '-=400px'}, 'fast', function () {
+					$(this).addClass("hidden")
+				});
+				var html = $('.show-visuals').html().replace("Hide", "Show")
+				$('.show-visuals').html(html.replace("Hide", "Show"))
+			}
+		});
+
+		// submit ajax request to get visualization data
+		$.ajax({url: "get_vis_data/", success: function(result){
+        	result = JSON.parse(result)
+        	console.log("SWAG", result)
+   		}});
+	</script>
+{% endblock %}
