@@ -1,4 +1,5 @@
 # Prophit
+Ajay Nathan, Alexander Suh, Gabriela Merz 
 
 ## Welcome to Prophit!
 
@@ -12,7 +13,6 @@ Alpha's macro data on the state of the economy. Prophit combines all of these
 datapoints in a machine-learning algorithm to predict the kinds of stores that 
 customers will like, allowing financial institutions like Capital One to help 
 their customers in a new way.  
-
 
 
 ## Getting Started
@@ -38,3 +38,5 @@ up for an account with Capital One. However, so that you can experience the
 site, we've made an account for you! The username is 'capital', and the password
 is 'one'. Enjoy!
 
+## Awards 
+This project won "Best Use of Capital One's API" at HackHarvard 2015 
